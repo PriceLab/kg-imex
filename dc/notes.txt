@@ -1,0 +1,14 @@
+--- tips from sam (email: 16 dec 2020)
+
+I've included our developer tool that allows you to visualize your
+individual mcfs. It even color codes the different types of nodes like
+enumerations and quantities in the rendered table of the entity.
+
+This is a link to the tool:
+https://datacommonsorg.github.io/tools/mcf-browser/#
+
+And here is the documentation:
+https://github.com/clincoln8/test-git-pages/blob/master/dev/README.md
+
+Here is additional documentation on the MCF format which you might find useful:
+https://github.com/datacommonsorg/data/blob/master/docs/mcf_format.md
