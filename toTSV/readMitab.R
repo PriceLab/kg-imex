@@ -123,3 +123,4 @@ tbl.intact <- tbl.7
 dim(tbl.intact)     # 580725 x 16
 save(tbl.intact, file="../tsv/tbl.intact.human-clean.RData")
 write.table(tbl.intact, quote=FALSE, row.names=FALSE, col.names=TRUE, sep="\t", file="../tsv/intact-human-clean.tsv")
+system("(cd ../tsv; gzip --force intact-human-clean.tsv)")
