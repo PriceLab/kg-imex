@@ -12,3 +12,44 @@ https://github.com/clincoln8/test-git-pages/blob/master/dev/README.md
 
 Here is additional documentation on the MCF format which you might find useful:
 https://github.com/datacommonsorg/data/blob/master/docs/mcf_format.md
+
+*----------------------------------------------------------------------------------------------------
+* an example of an interaction found in the dc graph browser and IMEx/intact/human (4 jan 2021)
+
+   https://datacommons.org/browser/bio/BLK_HUMAN_FLT3_HUMAN
+  grep -i blk  tsv/intact-human-clean.tsv  | grep -i flt3 | tr "\t" "\n"
+
+
+  B             P36888
+  A             P51451
+  method        protein array
+  type          directInteraction
+  idMethod.A    predeterminedParticipant
+  idMethod.B    tagVisualisation
+  confidence    0.44
+  SYMBOL.A      BLK
+  ENTREZID.A    640
+  GENEID.A      ENSG00000136573
+  SYMBOL.B      FLT3
+  ENTREZID.B    2322
+  GENEID.B      ENSG00000122025
+
+  --- from dc
+   https://datacommons.org/browser/bio/BLK_HUMAN_FLT3_HUMAN
+
+                   Property                     Value           Provenance
+                     typeOf ProteinProteinInteraction mint.bio.uniroma2.it
+            confidenceScore        IntactMiScore 0.44 mint.bio.uniroma2.it
+                     imexID               IM-26483-50 mint.bio.uniroma2.it
+                     imexID                  IM-26483 mint.bio.uniroma2.it
+                   intActID              EBI-20728991 mint.bio.uniroma2.it
+         interactingProtein                FLT3_HUMAN mint.bio.uniroma2.it
+         interactingProtein                 BLK_HUMAN mint.bio.uniroma2.it
+ interactionDetectionMethod              ProteinArray mint.bio.uniroma2.it
+          interactionSource                      Mint mint.bio.uniroma2.it
+            interactionType         DirectInteraction mint.bio.uniroma2.it
+                       name      BLK_HUMAN_FLT3_HUMAN mint.bio.uniroma2.it
+                   pubMedID                  28086240 mint.bio.uniroma2.it
+                       dcid  bio/BLK_HUMAN_FLT3_HUMAN                     
+
+

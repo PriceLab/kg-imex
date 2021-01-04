@@ -16,8 +16,8 @@ colnames(tbl.all) <- c("A",
                        "taxid.A",
                        "taxid.B",
                        "type",
-                       "Source database(s)",
-                       "Interaction identifier(s)",
+                       "source.database",
+                       "interaction.id",
                        "confidence",
                        "Expansion method(s)",
                        "Biological role(s) interactor A",
@@ -28,7 +28,7 @@ colnames(tbl.all) <- c("A",
                        "type.B",
                        "Xref(s) interactor A",
                        "Xref(s) interactor B",
-                       "Interaction Xref(s)",
+                       "interaction.xref",
                        "Annotation(s) interactor A",
                        "Annotation(s) interactor B",
                        "Interaction annotation(s)",
@@ -56,10 +56,11 @@ both.human <- intersect(grep("taxid:9606", tbl.all$taxid.A), grep("taxid:9606", 
 length(both.human)   # 12/20: 586,909 x 42   11/20: 583450 x 42
 tbl.2 <- tbl.all[both.human,]
 dim(tbl.2)  # 583450 42
-coi <- c("A", "B", "method", "type", "idMethod.A", "idMethod.B", "confidence")
+coi <- c("A", "B", "method", "type", "idMethod.A", "idMethod.B", "interaction.xref", "confidence",
+         "source.database", "interaction.id")
 all(coi %in% colnames(tbl.2))
 tbl.3 <- tbl.2[, coi]
-dim(tbl.3)   # 586909  7
+dim(tbl.3)   # 586909  10
 
   # 561k/583k offer uniprotkb ids for both A and B
 uniprot.both.ids <- intersect(grep("uniprotkb", tbl.3$A), grep("uniprotkb", tbl.3$B))
@@ -85,11 +86,14 @@ idMethods.A <- to_lower_camel_case(idMethods.A)
 idMethods.B <- gsub("psi.*\\((.*?)\\)", "\\1", tbl.4$idMethod.B)
 idMethods.B <- to_lower_camel_case(idMethods.B)
 
+source.database <- gsub("psi.*\\((.*?)\\)", "\\1", tbl.4$source.database)
+
 tbl.5 <- tbl.4
-tbl.5$method <- methods
+tbl.5$method <- to_lower_camel_case(methods)
 tbl.5$type <- types
 tbl.5$idMethod.A <- idMethods.A
 tbl.5$idMethod.B <- idMethods.B
+tbl.5$source.database <- source.database
 
 confidence <- tbl.4$confidence
   # pick off just the trailing numeric string
@@ -116,6 +120,6 @@ dim(tbl.id)  # 18696  4
 tbl.7 <- merge(tbl.6, tbl.id, by.x="B", by.y="UNIPROTID.B")
 
 tbl.intact <- tbl.7
-dim(tbl.intact)     # 580725 x 13
+dim(tbl.intact)     # 580725 x 16
 save(tbl.intact, file="../tsv/tbl.intact.human-clean.RData")
 write.table(tbl.intact, quote=FALSE, row.names=FALSE, col.names=TRUE, sep="\t", file="../tsv/intact-human-clean.tsv")
