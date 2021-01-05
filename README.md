@@ -2,6 +2,36 @@
 extract IMEx interactions into nodes and edges (entities and
 relations), import variously
 
+# TO DO
+
+The *tsv* directory currently (5 jan 2021) holds two version of one
+table, intact-human-clean, from which a few lines are shown below,
+transposed for easy reading.  A better approach is to transform
+IMEx/IntAct into *two* files, one for the entities (proteins), one for
+the relationships (interactions). 
+
+
+<pre>
+A                                              Q8IYT4                               Q9BW62                               Q5S007
+B                                          A0A024QZP7                           A0A024QZP7                           A0A024QZS4
+method                     tandemAffinityPurification           tandemAffinityPurification         antiTagCoimmunoprecipitation
+type                                      association                          association                          association
+idMethod.A                  sequenceTagIdentification            sequenceTagIdentification            sequenceTagIdentification
+idMethod.B                  sequenceTagIdentification            sequenceTagIdentification            sequenceTagIdentification
+interaction.xref                                    -                                    -                                    -
+publication.id                               26929214                             26929214                             31046837
+confidence                                       0.35                                 0.35                                 0.35
+source.database                                IntAct                               IntAct                               IntAct
+interaction.id   intact:EBI-16421609|imex:IM-26156-23 intact:EBI-16421284|imex:IM-26156-21 intact:EBI-21360986|imex:IM-26684-48
+SYMBOL.A                                      KATNAL2                              KATNAL1                                LRRK2
+ENTREZID.A                                      83473                                84056                               120892
+GENEID.A                              ENSG00000167216                      ENSG00000102781                      ENSG00000188906
+SYMBOL.B                                         CDK1                                 CDK1                                 PPIF
+ENTREZID.B                                        983                                  983                                10105
+GENEID.B                              ENSG00000170312                      ENSG00000170312                      ENSG00000108179
+</pre>
+
+
 # canonical identifiers
 
 Here are some excerpts from Porras 2020, [Towards a unified open access dataset of molecular interactions, Nature Communications.](https://www.nature.com/articles/s41467-020-19942-z)
